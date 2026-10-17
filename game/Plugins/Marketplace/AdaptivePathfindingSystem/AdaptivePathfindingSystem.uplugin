@@ -1,0 +1,32 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "2.06",
+	"FriendlyName": "AdaptivePathfindingSystem",
+	"Description": "A powerful tool for implementing a flexible and customizable navigation system.",
+	"Category": "Other",
+	"CreatedBy": "NordVader Inc.",
+	"CreatedByURL": "https://www.unrealengine.com/marketplace/en-US/profile/NordVader+Inc.",
+	"DocsURL": "https://ubiquitous-petroleum-1ed.notion.site/Documentation-16031447dcc8804e9ae3f6072d492b6c",
+	"MarketplaceURL": "",
+	"SupportURL": "https://discord.com/invite/D39JZHHpwD",
+	"EngineVersion": "5.8.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "AdaptivePathfindingSystem",
+			"Type": "Runtime",
+			"LoadingPhase": "PreLoadingScreen",
+			"PlatformAllowList": [
+				"Win64"
+			],
+			"PlatformDenyList": [
+				"IOS"
+			],
+			"AdditionalDependencies": [
+				"PhysicsCore"
+			]
+		}
+	]
+}

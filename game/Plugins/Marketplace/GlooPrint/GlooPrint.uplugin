@@ -1,0 +1,31 @@
+{
+	"FileVersion": 3,
+	"Version": 4,
+	"VersionName": "1.1.0",
+	"FriendlyName": "GlooPrint",
+	"Description": "Press F to tidy your whole Blueprint or Material graph. Pick a node to keep in place, and choose rounded wires, 45-degree turns or Unreal's own curves.",
+	"Category": "Editor",
+	"CreatedBy": "Ishtmeet Singh",
+	"CreatedByURL": "https://github.com/ishtms",
+	"DocsURL": "https://github.com/ishtms/glooprint#readme",
+	"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/148b61c2-57d4-4deb-9df2-c4e6479a08b9",
+	"SupportURL": "https://github.com/ishtms/glooprint/issues",
+	"EngineVersion": "5.8.0",
+	"CanContainContent": false,
+	"Installed": true,
+	"SupportedTargetPlatforms": [
+		"Win64",
+		"Mac"
+	],
+	"Modules": [
+		{
+			"Name": "GlooPrint",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit",
+			"PlatformAllowList": [
+				"Win64",
+				"Mac"
+			]
+		}
+	]
+}

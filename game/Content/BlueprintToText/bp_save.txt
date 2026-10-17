@@ -1,0 +1,6 @@
+# Blueprint: bp_save
+
+## Variables
+
+sg_trans: Transform
+helf: Float (double-precision)

@@ -1,0 +1,28 @@
+# Blueprint: tp
+
+## Variables
+
+too: Float (double-precision)
+x: Float (double-precision)
+
+## Components
+
+DefaultSceneRoot: SceneComponent
+Box: BoxComponent
+Cube: StaticMeshComponent
+
+## Event: BeginPlay
+
+
+## Event: ActorBeginOverlap
+
+
+## Event: Tick
+
+
+## Event: On Component Begin Overlap (Box)
+
+K2_SetActorLocation(0, 0, 0, OtherActor.K2_GetActorLocation() + x, OtherActor.K2_GetActorLocation(), too, false, false)
+
+## Function: UserConstructionScript
+

@@ -1,0 +1,114 @@
+# Blueprint: BP_ThirdPersonCharacter
+
+## Variables
+
+hp: Float (double-precision)
+actor_loc: Transform
+plat: Actor Object Reference
+Hit Component: Primitive Component Object Reference
+CurrentMoveRight: Float (double-precision)
+
+## Components
+
+CameraBoom: SpringArmComponent
+FollowCamera: CameraComponent
+Arrow1: ArrowComponent
+
+## Dependencies
+
+bp_save
+
+## Event: EnhancedInputAction IA_Jump
+
+[Started]:
+Jump()
+[Completed]:
+StopJumping()
+
+## Event: EnhancedInputAction IA_Move
+
+Move(EnhancedInputAction IA_Move, EnhancedInputAction IA_Move)
+
+## Event: Primary Thumbstick
+
+Move(Axis_X, Axis_Y)
+
+## Event: Touch Jump Start
+
+Jump()
+
+## Event: Touch Jump End
+
+StopJumping()
+
+## Event: S
+
+[Pressed]:
+Timeline_S
+K2_SetRelativeLocation(MakeVector(400.000000, 500.000000, Timeline_S * -80.000000), false, false)
+[Released]:
+
+## Event: W
+
+[Pressed]:
+Timeline_W
+K2_SetRelativeLocation(MakeVector(400.000000, 500.000000, Timeline_W * 80.000000), false, false)
+[Released]:
+
+## Event: 3
+
+Temp = CreateSaveGameObject(bp_save_C)
+actor_loc = GetTransform()
+sg_trans = actor_loc
+helf = hp
+SaveGameToSlot(Temp, "savegame", 0)
+PrintString("save ok", true, true, (R=0.000000,G=0.660000,B=1.000000,A=1.000000), 2.000000, "None")
+
+## Event: 4
+
+Temp = DoesSaveGameExist("savegame", 0)
+IF Temp:
+    Temp_2 = LoadGameFromSlot("savegame", 0)
+    save = Cast(Temp_2, bp_save)
+    sg_trans = save.sg_trans
+    K2_SetActorTransform(sg_trans, false, false)
+    hp = save.helf
+    PrintString("load ok", true, true, (R=0.000000,G=0.660000,B=1.000000,A=1.000000), 2.000000, "None")
+
+## Event: S
+
+LineTraceSingle(Arrow1.K2_GetComponentLocation(), Arrow1.K2_GetComponentLocation() + Arrow1.GetForwardVector() * 100.000000, TraceTypeQuery1, false, ForDuration, true, (R=1.000000,G=0.000000,B=0.000000,A=1.000000), (R=0.000000,G=1.000000,B=0.000000,A=1.000000), 5.000000)
+Temp = LineTraceSingle(Arrow1.K2_GetComponentLocation(), Arrow1.K2_GetComponentLocation() + Arrow1.GetForwardVector() * 100.000000, TraceTypeQuery1, false, ForDuration, true, (R=1.000000,G=0.000000,B=0.000000,A=1.000000), (R=0.000000,G=1.000000,B=0.000000,A=1.000000), 5.000000)
+Hit Component = BreakHitResult(Temp)
+IF ActorHasTag("plat"):
+    [execute]:
+    SEQUENCE:
+        IF Local Boolean:
+            ...
+        ELSE:
+            Assign
+            IF Inputs:
+                Assign
+        IF Local Boolean:
+            ...
+        ELSE:
+            Assign
+    [Reset]:
+    Assign
+    Assign
+    SetCollisionEnabled(NoCollision)
+    WAIT 1.000000 seconds
+    SetCollisionEnabled(QueryAndPhysics)
+
+## Function: UserConstructionScript
+
+
+## Function: Move
+
+AddMovementInput(GetRightVector(0, 0, 0, GetControlRotation(), 0.0, GetControlRotation()), X Axis, false)
+AddMovementInput(GetForwardVector(0, 0, 0, 0.0, 0.0, GetControlRotation()), Y Axis, false)
+
+## Function: Aim
+
+AddControllerYawInput(X Axis)
+AddControllerPitchInput(Y Axis)
