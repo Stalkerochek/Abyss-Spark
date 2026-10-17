@@ -1,0 +1,4 @@
+*.dll filter=lfs diff=lfs merge=lfs -text
+*.uasset filter=lfs diff=lfs merge=lfs -text
+*.umap filter=lfs diff=lfs merge=lfs -text
+Plugins\Sentry\Source\ThirdParty\CLI\* filter=lfs diff=lfs merge=lfs -text
